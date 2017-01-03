@@ -1,0 +1,48 @@
+body {
+  max-width: 100%;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  @include respond-to('medium') {
+    max-width: 80%;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .loading {
+    background-image: url('../images/loading.gif');
+    background-repeat: no-repeat;
+    min-height: 32px;
+  }
+
+}
+.next-events {
+  h2 {
+    text-transform: capitalize;
+  }
+  li {
+    padding: .5em;
+    cursor: pointer;
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+}
+
+.list-zones li {
+  display: inline-block;
+  margin-right: .5em;
+
+  a.active {
+    color: #ccc;
+  }
+}
