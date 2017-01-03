@@ -22,10 +22,11 @@
 
       // first time
       if (z === undefined) {
+        var path = doc.location.origin + doc.location.pathname;
         zone = zone === undefined ? defaultZone : zone;
         location = location === '' ? '?zone=' + defaultZone : location;
         $('a[href="' + location || + '"]').addClass('active');
-        win.history.pushState({'zone':zone},'eRaver', '/?zone=' + zone);
+        win.history.pushState({'zone':zone},'eRaver', path + '?zone=' + zone);
       }
 
 
@@ -42,9 +43,10 @@
     zonesHandler: function() {
       $('.js-list-zones').on('click', 'a', function(ev) {
         ev.preventDefault();
-        var zone = ev.target.href.split('?zone=')[1];
+        var zone = ev.target.href.split('?zone=')[1],
+            path = doc.location.origin + doc.location.pathname;
         app.getZones(zone, this);
-        win.history.pushState({'zone':zone},'eRaver', '/?zone=' + zone);
+        win.history.pushState({'zone':zone},'eRaver', path + '?zone=' + zone);
       });
 
       window.onpopstate = function(event) {
