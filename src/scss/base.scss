@@ -22,16 +22,25 @@ body {
     background-image: url('../images/loading.gif');
     background-repeat: no-repeat;
     min-height: 32px;
+    margin-left: .5em;
   }
 
 }
+
+header {
+  padding: .5em;
+}
+
 .next-events {
   h2 {
     text-transform: capitalize;
+    margin-left: .5em;
   }
   li {
     padding: .5em;
+    font-size: 1.5em;
     cursor: pointer;
+    border-bottom: solid 1px #ccc;
     &:hover {
       background-color: #ccc;
     }
@@ -40,6 +49,7 @@ body {
 
 .list-zones li {
   display: inline-block;
+  margin-bottom: .5em;
   margin-right: .5em;
 
   a.active {
