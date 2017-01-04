@@ -18,6 +18,7 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     pug = require('gulp-pug'),
     pugConcat = require('gulp-pug-template-concat'),
+    ghPages = require('gulp-gh-pages'),
     path = {
       src: './src',
       dist: './dist',
@@ -144,6 +145,12 @@ gulp.task('connect', function() {
     root: 'dist',
     livereload: true
   });
+});
+
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 
