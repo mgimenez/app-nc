@@ -37,12 +37,29 @@ header {
     margin-left: .5em;
   }
   li {
-    padding: .5em;
+    padding: .5em 1.3em .5em .5em;
     font-size: 1.5em;
     cursor: pointer;
     border-bottom: solid 1px #ccc;
+    position: relative;
     &:hover {
       background-color: #ccc;
+    }
+    &:after{
+      content: '';
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: -webkit-body;
+      font-size: 37px;
+      background-image: url(https://rrisd.avatarlms.com/images/icons/arrowright.png);
+      height: 20px;
+      width: 20px;
+
+      @include respond-to('medium') {
+        display: none;
+      }
     }
   }
 }
