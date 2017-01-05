@@ -6,6 +6,7 @@
     init: function() {
       this.populateEvents();
       this.zonesHandler();
+      this.instantSearch();
     },
 
     populateEvents: function(z) {
@@ -43,6 +44,7 @@
     zonesHandler: function() {
       $('.js-list-zones').on('click', 'a', function(ev) {
         ev.preventDefault();
+        $('.js-input-search').val('');
         var zone = ev.target.href.split('?zone=')[1],
             path = doc.location.origin + doc.location.pathname;
         app.getZones(zone, this);
@@ -55,6 +57,19 @@
           app.getZones(event.state.zone, trigger);
         }
       };
+    },
+
+    instantSearch: function() {
+      $('.js-input-search').keyup(function () {
+        var filter = jQuery(this).val();
+        $(".js-list-events li").each(function () {
+          if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+            $(this).hide();
+          } else {
+            $(this).show()
+          }
+        });
+      });
     }
   };
 
