@@ -61,12 +61,12 @@
 
     instantSearch: function() {
       $('.js-input-search').keyup(function () {
-        var filter = jQuery(this).val();
+        var filter = $(this).val();
         $(".js-list-events li").each(function () {
           if ($(this).text().search(new RegExp(filter, "i")) < 0) {
             $(this).hide();
           } else {
-            $(this).show()
+            $(this).show();
           }
         });
       });
